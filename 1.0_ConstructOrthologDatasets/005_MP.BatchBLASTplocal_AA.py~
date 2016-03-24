@@ -1,0 +1,49 @@
+import os
+import re
+import multiprocessing as mp
+
+fileextension = '.fa' # change this to specify which files are accessed.
+
+evalue = '0.05'
+numhitsreported = 5
+outformat = '6 std sstrand qcovs' #staxids sskingdoms sblastnames sscinames scomnames stitle' # qseqid sseqid pident length qlen mismatch nident gapopen qstart qend sstart send evalue bitscore sstrand sacc staxids sscinames scomnames sblastnames sskingdoms stitle qcov qcovhsp'
+#-evalue %d
+dbtype = 'ExtractOrthoMaM_HomoOne2OneWithHMMDP_AA' # ColugoSuperContigs nt wgs
+task = 'blastp'
+threads = 16
+t = 2
+dbpath = '/WMLab/victor/Orthologs/DetermineGVAOrthologousCDSSeqs/BLASTGVAToOrthoMaMHomo' # enter path to directory containing databases # /WMLab/BLAST_Databases/
+
+extension = re.compile('.+%s$' % (fileextension))
+
+def ExecuteCommand(cmd):
+    os.system(cmd)
+    print cmd
+
+
+def SetEnvironmentalVariables():
+    os.environ['BLASTDB'] = dbpath
+    print os.environ['BLASTDB']
+
+
+def main():
+    #SetEnvironmentalVariables()
+    filelist = []
+    files = filter(os.path.isfile, os.listdir('.'))
+    for filename in files:
+        if extension.match(filename) != None:
+            filelist.append(filename)  
+    
+    cmdlist = []
+    for fle in filelist:
+	print fle
+        fleout = fle + '.out'
+        command = 'blastp -query %s -db \'%s\' -task %s -num_threads %d -evalue %s -max_target_seqs %d -outfmt \'%s\' -out %s' % (fle, dbtype, task, threads, evalue, numhitsreported, outformat, fleout) # -best_hit_overhang 0.1 -best_hit_score_edge 0.1 
+	cmdlist.append(command)
+
+    p = mp.Pool(t)
+    p.map(ExecuteCommand, cmdlist)
+    p.close()
+    p.join()
+            
+main()

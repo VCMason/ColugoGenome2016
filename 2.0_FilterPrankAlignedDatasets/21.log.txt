@@ -1,0 +1,90 @@
+[vmason@wmurphy-ngs 21TaxaAA_PrankAligned]$ python RemoveFrameshiftedAlignsFromPhylip.v3.12.py 
+Reference Individual = Homo
+Zscore = 2.000000
+Pairwise deletion distance frequency cutoff value = 0.30
+Minimum AA alignment length accepted = 20
+Minimum percent base coverage accepted = 50
+Missing data character = X
+mkdir: cannot create directory `GblocksAAFastaRemFrameshiftAlignments': File exists
+Number of left after excluding empty alignments: 707
+Number of excluded empty alignments (i.e. gblocks removed all bases) or Alignment was < 20 AA long: 34
+Number of excluded alignments because alignment had < 50 percentage of bases covered: 1792
+Felis: 3
+Bos: 8
+Mus: 2
+Ictidomys: 3
+Gorilla: 5
+Callithrix: 2
+Nomascus: 3
+Loxodonta: 11
+Cavia: 14
+GVA: 6
+Pongo: 1
+CVO: 320
+Oryctolagus: 6
+Rattus: 3
+TCH: 21
+Canis: 7
+Macaca: 5
+Ptilocercus: 1716
+Pan: 2
+Otolemur: 3
+[vmason@wmurphy-ngs 21TaxaAA_PrankAligned]$ 
+
+####################
+
+[vmason@wmurphy-ngs 21TaxaAA_PrankAligned]$ python FilterGblockAAAlignsSeqsForHighDivergenceWindows.v7.py 
+Reference Individual = Homo
+Zscore = 2.000000
+Pairwise deletion distance frequency cutoff value = 0.40
+Minimum AA alignment length accepted = 20
+Minimum percent base coverage accepted = 50
+Window Size = 10
+Window Step Value = 1
+Missing data character = X
+Number of left after excluding empty alignments: 694
+Number of excluded empty alignments (i.e. gblocks removed all bases) or Alignment was < 20 AA long: 0
+Number of excluded alignments because alignment had < 50 percentage of bases covered: 13
+CVO: 1
+Ptilocercus: 10
+Cavia: 1
+Mus: 1
+[vmason@wmurphy-ngs 21TaxaAA_PrankAligned]$ 
+
+#####################
+
+[vmason@wmurphy-ngs 21TaxaAA_PrankAligned]$ python BackTranslateGblockAAToNUAlignments.re.v5.py 
+mkdir: cannot create directory `GblockAAGuidedNUAlignments': File exists
+[vmason@wmurphy-ngs 21TaxaAA_PrankAligned]$ cd GblockAAGuidedNUAlignments/
+
+#####################
+
+[vmason@wmurphy-ngs GblockAAGuidedNUAlignments]$ python RemoveTerminalStopCodonsThenMoveAnyOtherFilesWithStopCodonsToNewDirectory.py 
+Terminal stop codons replaced with missing data character: NNN
+Number of Files with Zero Stop Codons: 2447
+Number of Files with One or More Stop Codons: 59
+[vmason@wmurphy-ngs GblockAAGuidedNUAlignments]$ 
+
+#####################
+
+[vmason@wmurphy-ngs 21TaxaAA_PrankAligned]$ python EnforceAAGuidedHighDivergenceFilterOnNUGblocksReducedAAGuidedAlignments.v4.py
+Number of Nucleotide Files not present: 25
+[vmason@wmurphy-ngs 21TaxaAA_PrankAligned]$ 
+
+#####################
+
+[vmason@wmurphy-ngs 21TaxaNT_BranchLengthFilteredAlignments]$ python Isolate1st2ndAnd3rdSites.py 
+12.6289470196
+
+#####################
+
+[vmason@wmurphy-ngs FirstSitesOnly_NU]$ python BatchConcatenateAllFastasTo1PhylipFile.v2.2.21Taxa.NU.py 
+
+#####################
+
+[vmason@wmurphy-ngs 21TaxaNT_BranchLengthFilteredAlignments]$ cp ./Concatenated634OrthoGenes.21TaxawGVAwTCHwCVOwPLO.gb.Frame.PC50.Filter0.4.AllSites.NU.phy /WMLab/victor/RunTrees
+
+#####################
+
+trimal -in .phy -out .trimal.phy -automated1
+
