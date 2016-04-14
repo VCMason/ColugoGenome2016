@@ -1,0 +1,27 @@
+>Primatomorpha
+TCH, Tupaia, Mus, Rattus, Dipodomys, Cavia, Ictidomys, Oryctolagus, Ochotona, Ovis, Bos, Tursiops, Sus, Vicugna, Mustela, Ailuropoda, Canis, Felis, Equus, Pteropus, Myotis, Sorex, Erinaceous, Dasypus, Choloepus, Procavia, Loxodonta, Echinops | TCH, Mus, Ictidomys, Oryctolagus, Ovis, Bos, Sus, Canis, Equus, Myotis, Loxodonta
+
+#####
+
+INSERTION Hypotheses:
+
+>Primatomorpha
+TCH, Tupaia, Mus, Rattus, Dipodomys, Cavia, Ictidomys, Oryctolagus, Ochotona, Ovis, Bos, Tursiops, Sus, Vicugna, Mustela, Ailuropoda, Canis, Felis, Equus, Pteropus, Myotis, Sorex, Erinaceous, Dasypus, Choloepus, Procavia, Loxodonta, Echinops | TCH, Tupaia, Mus, Rattus, Dipodomys, Cavia, Ictidomys, Oryctolagus, Ochotona, Ovis, Bos, Tursiops, Sus, Vicugna, Mustela, Ailuropoda, Canis, Felis, Equus, Pteropus, Myotis, Sorex, Erinaceous, Dasypus, Choloepus, Procavia, Loxodonta, Echinops
+# Macropus, Sarcophilus, Monodelphis, Ornithorhynchus
+
+DELETION Hypotheses:
+
+>Primatomorpha
+Homo, Pan, Gorilla, Pongo, Nomascus, Papio, Macaca, Callithrix, Tarsius, Otolemur, Microcebus, GVA | Homo, Macaca, GVA
+>Sundatheria
+GVA, Tupaia, TCH | GVA, TCH
+>Euarchonta
+Homo, Pan, Gorilla, Pongo, Nomascus, Papio, Macaca, Callithrix, Tarsius, Otolemur, Microcebus, GVA, Tupaia, TCH | GVA, TCH, Homo
+>Primates+Tupaia
+Homo, Macaca, Tupaia, TCH | TCH, Homo, Macaca
+>Glires+Tupaia
+Mus, Rattus, Tupaia, TCH | TCH, Mus, Rattus
+>Glires+Galepterus
+Mus, Rattus, GVA | GVA, Mus, Rattus
+>Euarchontoglires
+Homo, Macaca, GVA, Tupaia, TCH, Mus, Rattus | GVA, TCH, Homo, Mus

@@ -1,0 +1,16 @@
+>Primatomorpha
+Homo, Pan, Gorilla, Pongo, Nomascus, Papio, Macaca, Callithrix, Tarsius, Otolemur, Microcebus, GVA | Homo, Macaca, GVA
+#####
+
+>Sundatheria
+GVA, Tupaia, TCH | GVA, TCH
+>Euarchonta
+Homo, Pan, Gorilla, Pongo, Nomascus, Papio, Macaca, Callithrix, Tarsius, Otolemur, Microcebus, GVA, Tupaia, TCH | GVA, TCH, Homo
+>Primates+Tupaia
+Homo, Macaca, Tupaia, TCH | TCH, Homo, Macaca
+>Glires+Tupaia
+Mus, Rattus, Tupaia, TCH | TCH, Mus, Rattus
+>Glires+Galepterus
+Mus, Rattus, GVA | GVA, Mus, Rattus
+>Euarchontoglires
+Homo, Macaca, GVA, Tupaia, TCH, Mus, Rattus | GVA, TCH, Homo, Mus
